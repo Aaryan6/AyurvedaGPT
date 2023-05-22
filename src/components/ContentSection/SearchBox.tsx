@@ -2,9 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const SearchBox = ({ setAnswer }: any) => {
-  const [searchTerm, setSearchTerm] = useState(
-    "How to get peace and present at the moment?"
-  );
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -18,12 +16,11 @@ const SearchBox = ({ setAnswer }: any) => {
   };
 
   return (
-    <div className="mt-20 max-w-3xl mx-auto w-2/3">
-      <div className="bg-gray-100 rounded-md p-4 py-3 w-full">
-        <input
-          type="text"
-          placeholder="Ask your question here..."
-          className="w-full bg-transparent outline-none"
+    <div className="w-1/2">
+      <div className="bg-[#edf0f4] rounded-md p-4 py-3 w-full">
+        <textarea
+          placeholder="Write here..."
+          className="w-full bg-transparent outline-none h-[10rem] resize-none"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -31,7 +28,7 @@ const SearchBox = ({ setAnswer }: any) => {
       <button
         type="button"
         onClick={handleSubmit}
-        className="w-full text-center bg-slate-800 text-white py-2 mt-3 rounded-md"
+        className="w-full text-center bg-slate-800 text-white py-2 mt-2 rounded-md"
       >
         {loading ? "Loading..." : "Get Result"}
       </button>

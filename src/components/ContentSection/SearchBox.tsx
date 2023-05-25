@@ -16,7 +16,6 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
         question: searchTerm,
       }
     );
-    console.log(res.data.response);
     setAnswer(res.data.response);
     setLoading(false);
   };

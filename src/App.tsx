@@ -6,7 +6,7 @@ function App() {
   return (
     <main className="bg-white dark:bg-[#000] h-screen flex flex-col">
       <Navbar />
-      <div className="flex flex-1 max-w-[90rem] sm:mx-auto">
+      <div className="flex flex-1 w-full max-w-[90rem] sm:mx-auto">
         <Sidebar />
         <ChatSection />
       </div>

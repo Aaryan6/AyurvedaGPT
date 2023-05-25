@@ -1,38 +1,47 @@
 import { useState } from "react";
 import axios from "axios";
+import { AiOutlineEdit } from "react-icons/ai";
 
-const SearchBox = ({ setAnswer }: any) => {
+const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    if (!searchTerm) return;
+
     setLoading(true);
-    const res = await axios.post("http://localhost:5000/api", {
-      question: searchTerm,
-    });
+    const res = await axios.post(
+      "https://coral-app-gs2vm.ondigitalocean.app/ask",
+      {
+        question: searchTerm,
+      }
+    );
     console.log(res.data.response);
     setAnswer(res.data.response);
     setLoading(false);
   };
 
   return (
-    <div className="w-1/2">
-      <div className="bg-[#edf0f4] rounded-md p-4 py-3 w-full">
-        <textarea
-          placeholder="Write here..."
-          className="w-full bg-transparent outline-none h-[10rem] resize-none"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-[#fff] dark:bg-[#10121c] flex rounded-md px-4 pr-2 py-2 mt-8"
+    >
+      <input
+        placeholder="Ask here..."
+        className="w-full bg-transparent outline-none resize-none pr-2 dark:text-slate-300"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <button
-        type="button"
+        type="submit"
         onClick={handleSubmit}
-        className="w-full text-center bg-slate-800 text-white py-2 mt-2 rounded-md"
+        className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
       >
-        {loading ? "Loading..." : "Get Result"}
+        <AiOutlineEdit
+          className={loading ? "animate-pulse text-lg" : "text-lg"}
+        />
       </button>
-    </div>
+    </form>
   );
 };
 

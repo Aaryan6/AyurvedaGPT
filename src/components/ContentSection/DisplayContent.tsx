@@ -1,9 +1,24 @@
-const DisplayContent = ({ answer }: any) => {
+import { AiFillStar } from "react-icons/ai";
+
+interface DisplayContentProps {
+  answer: string;
+  loading: boolean;
+}
+
+const DisplayContent = ({ answer, loading }: DisplayContentProps) => {
   return (
-    <div className="w-1/2">
-      <p className="bg-[#edf0f4] rounded-md p-4 py-4 min-h-[15rem] resize-none w-full outline-none h-max">
-        {answer ? answer : <span className="text-gray-400">Result</span>}
-      </p>
+    <div className="w-full mt-6">
+      {answer ? (
+        <p
+          className={`bg-white dark:bg-[#10121c] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed`}
+        >
+          {answer}
+        </p>
+      ) : (
+        <p className="bg-white dark:bg-[#10121c] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed">
+          <AiFillStar className={`text-2xl ${loading && "animate-spin"}`} />
+        </p>
+      )}
     </div>
   );
 };

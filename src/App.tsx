@@ -1,22 +1,15 @@
-import MainSection from "./components/MainSection";
+import ChatSection from "./components/ChatSection";
 import Navbar from "./components/Navbar";
-import { useEffect } from "react";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-  useEffect(() => {
-    console.log("first render");
-    (async () => {
-      await fetch("http://localhost:5000/api")
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
-    })();
-  }, []);
-
   return (
-    <main className="bg-white h-screen">
+    <main className="bg-white dark:bg-[#000] h-screen flex flex-col">
       <Navbar />
-      <MainSection />
+      <div className="flex flex-1 max-w-[90rem] sm:mx-auto">
+        <Sidebar />
+        <ChatSection />
+      </div>
     </main>
   );
 }

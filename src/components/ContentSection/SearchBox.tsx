@@ -59,7 +59,7 @@ setRemoveIcon(false);
         onClick={ClearInput}
         className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
       >
-<RxCross className="text-lg"
+<RxCross2 className="text-lg"
         />
       </button>
 )

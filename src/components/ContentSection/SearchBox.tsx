@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { AiOutlineEdit } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
 
 const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
+const [removeIcon, setRemoveIcon] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -18,7 +20,13 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
     );
     setAnswer(res.data.response);
     setLoading(false);
+setRemoveIcon(true);
   };
+
+const ClearInput = () => {
+setSearchTerm("");
+setRemoveIcon(false);
+}
 
   return (
     <form
@@ -31,15 +39,31 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+{!removeIcon ?
+(
       <button
         type="submit"
         onClick={handleSubmit}
         className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
       >
+
         <AiOutlineEdit
           className={loading ? "animate-pulse text-lg" : "text-lg"}
         />
+</button>
+)
+:
+(
+<button
+        type="button"
+        onClick={ClearInput}
+        className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
+      >
+<RxCross2 className="text-lg"
+        />
       </button>
+)
+}
     </form>
   );
 };

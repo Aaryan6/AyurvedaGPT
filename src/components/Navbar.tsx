@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
+import { FaGithub, FaSun, FaMoon } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 

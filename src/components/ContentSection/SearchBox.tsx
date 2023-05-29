@@ -45,7 +45,6 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
       {!removeIcon ? (
         <button
           type="submit"
-          onClick={handleSubmit}
           className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
         >
           <AiOutlineEdit

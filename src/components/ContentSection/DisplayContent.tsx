@@ -10,9 +10,9 @@ const DisplayContent = ({ answer, loading }: DisplayContentProps) => {
     <div className="w-full mt-6">
       {answer ? (
         <p
-          className={`bg-white dark:bg-[#10121c] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed`}
+          className={`bg-white dark:bg-[#10121c] dark:text-slate-300 whitespace-break-spaces rounded-md px-6 py-6 w-full leading-relaxed`}
         >
-          {answer}
+          {answer.trimStart()}
         </p>
       ) : (
         <p className="bg-white dark:bg-[#10121c] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed">

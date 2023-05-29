@@ -5,33 +5,33 @@ import { RxCross2 } from "react-icons/rx";
 
 const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
-const [removeIcon, setRemoveIcon] = useState(false);
+  const [removeIcon, setRemoveIcon] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!searchTerm) return;
 
     setLoading(true);
-    const res = await axios.post(
-      "https://coral-app-gs2vm.ondigitalocean.app/ask",
-      {
-        question: searchTerm,
-      }
-    );
+    setAnswer("");
+    setRemoveIcon(false);
+    const res = await axios.post("http://localhost:5000/ask", {
+      question: searchTerm,
+    });
     setAnswer(res.data.response);
     setLoading(false);
-setRemoveIcon(true);
+    setRemoveIcon(true);
   };
 
-const ClearInput = () => {
-setSearchTerm("");
-setRemoveIcon(false);
-}
+  const ClearInput = () => {
+    setSearchTerm("");
+    setRemoveIcon(false);
+    setAnswer("");
+  };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-[#fff] dark:bg-[#10121c] flex rounded-md px-4 pr-2 py-2 mt-8"
+      className="bg-[#fff] dark:bg-[#10121c] flex rounded-md pl-6 pr-2 py-2 mt-8"
     >
       <input
         placeholder="Ask here..."
@@ -39,31 +39,25 @@ setRemoveIcon(false);
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-{!removeIcon ?
-(
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
-      >
-
-        <AiOutlineEdit
-          className={loading ? "animate-pulse text-lg" : "text-lg"}
-        />
-</button>
-)
-:
-(
-<button
-        type="button"
-        onClick={ClearInput}
-        className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
-      >
-<RxCross2 className="text-lg"
-        />
-      </button>
-)
-}
+      {!removeIcon ? (
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
+        >
+          <AiOutlineEdit
+            className={loading ? "animate-pulse text-lg" : "text-lg"}
+          />
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={ClearInput}
+          className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
+        >
+          <RxCross2 className="text-lg" />
+        </button>
+      )}
     </form>
   );
 };

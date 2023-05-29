@@ -31,23 +31,15 @@ const Navbar = () => {
       </div>
       <div className="flex items-center">
         <a
-          href="https://github.com/your-github-url"
+          href="https://github.com/Aaryan6/AyurvedaGPT-react"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-slate-200 mr-4"
+          className="text-white hover:text-slate-200 mr-6"
         >
           <FaGithub className="text-xl sm:text-2xl text-black dark:text-[#dfdfdf]" />
         </a>
-        <a
-          href="https://linkedin.com/your-linkedin-url"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-gray-300"
-        >
-          <FaLinkedin className="text-xl sm:text-2xl text-black dark:text-[#dfdfdf]" />
-        </a>
         <button
-          className="ml-4 text-white hover:text-gray-300"
+          className="text-white hover:text-gray-300"
           onClick={toggleDarkMode}
         >
           {isDarkMode ? (

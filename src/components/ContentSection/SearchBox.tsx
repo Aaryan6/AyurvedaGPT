@@ -14,9 +14,12 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
     setLoading(true);
     setAnswer("");
     setRemoveIcon(false);
-    const res = await axios.post("http://localhost:5000/ask", {
-      question: searchTerm,
-    });
+    const res = await axios.post(
+      "https://coral-app-gs2vm.ondigitalocean.app/ask",
+      {
+        question: searchTerm,
+      }
+    );
     setAnswer(res.data.response);
     setLoading(false);
     setRemoveIcon(true);

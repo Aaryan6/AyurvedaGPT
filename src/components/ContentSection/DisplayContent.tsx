@@ -10,12 +10,12 @@ const DisplayContent = ({ answer, loading }: DisplayContentProps) => {
     <div className="w-full mt-6">
       {answer ? (
         <p
-          className={`bg-white dark:bg-[#10121c] dark:text-slate-300 whitespace-break-spaces rounded-md px-6 py-6 w-full leading-relaxed`}
+          className={`bg-[#ecf1f5] dark:bg-[#2f3648] dark:text-slate-300 whitespace-break-spaces rounded-md px-6 py-6 w-full leading-relaxed`}
         >
           {answer.trimStart()}
         </p>
       ) : (
-        <p className="bg-white dark:bg-[#10121c] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed">
+        <p className="bg-[#ecf1f5] dark:bg-[#2f3648] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed">
           <AiFillStar className={`text-2xl ${loading && "animate-spin"}`} />
         </p>
       )}

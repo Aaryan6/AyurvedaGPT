@@ -25,9 +25,12 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between p-4 sm:p-6 px-4 sm:px-10 max-w-8xl mx-auto w-full">
       <div className="flex items-center">
-        <span className="text-black dark:text-[#dfdfdf] font-semibold text-base sm:text-xl">
-          AyurvedaGPT
-        </span>
+        <div className="cursor-pointer flex items-center">
+          <img src="/logo.png" alt="" className="w-9 mr-2" />
+          <span className="logo text-black dark:text-[#dfdfdf] font-semibold text-base sm:text-xl">
+            AyurvedaGPT
+          </span>
+        </div>
       </div>
       <div className="flex items-center">
         <a

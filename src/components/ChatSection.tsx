@@ -7,7 +7,7 @@ const ChatSection = () => {
   const [loading, setLoading] = useState(false);
   return (
     <section className="flex-1 sm:pt-4 sm:pb-8 sm:px-10 h-full">
-      <div className="bg-[#ECF1F5] dark:bg-[#1f212d] relative sm:mx-auto w-full h-full sm:rounded-xl p-4 sm:px-12 pt-8">
+      <div className="bg-[#fff] dark:bg-[#171d29] relative sm:mx-auto w-full h-full sm:rounded-xl p-4 sm:px-12 pt-8">
         <h3 className="text-center uppercase font-semibold text-2xl dark:text-slate-200">
           Ayurveda GPT
         </h3>

@@ -34,7 +34,7 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-[#fff] dark:bg-[#10121c] flex rounded-md pl-6 pr-2 py-2 mt-8"
+      className="bg-[#ecf1f5] dark:bg-[#2f3648] flex rounded-md pl-6 pr-2 py-2 mt-8"
     >
       <input
         placeholder="Ask here..."
@@ -45,7 +45,7 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
       {!removeIcon ? (
         <button
           type="submit"
-          className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
+          className="grid place-items-center bg-slate-900 text-white w-10 h-10 rounded-md"
         >
           <AiOutlineEdit
             className={loading ? "animate-pulse text-lg" : "text-lg"}
@@ -55,7 +55,7 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
         <button
           type="button"
           onClick={ClearInput}
-          className="grid place-items-center bg-slate-800 text-white w-10 h-10 rounded-md"
+          className="grid place-items-center bg-slate-900 text-white w-10 h-10 rounded-md"
         >
           <RxCross2 className="text-lg" />
         </button>

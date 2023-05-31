@@ -27,9 +27,9 @@ const Navbar = () => {
       <div className="flex items-center">
         <div className="cursor-pointer flex items-center">
           {isDarkMode ? (
-            <img src="/vectorlogo.svg" alt="" className="w-8 mr-2" />
+            <img src="/vectorlogo.svg" alt="" className="w-8 mr-2 -mt-1" />
           ) : (
-            <img src="/vectorlogo2.svg" alt="" className="w-8 mr-2" />
+            <img src="/vectorlogo2.svg" alt="" className="w-8 mr-2 -mt-1" />
           )}
           <span className="logo text-black dark:text-emerald-50 font-semibold text-base sm:text-xl">
             AyurvedaGPT

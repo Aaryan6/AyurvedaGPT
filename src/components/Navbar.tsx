@@ -26,8 +26,12 @@ const Navbar = () => {
     <nav className="flex items-center justify-between p-4 sm:p-6 px-4 sm:px-10 max-w-8xl mx-auto w-full">
       <div className="flex items-center">
         <div className="cursor-pointer flex items-center">
-          <img src="/favicon.png" alt="" className="w-9 mr-2" />
-          <span className="logo text-black dark:text-teal-100 font-semibold text-base sm:text-xl">
+          {isDarkMode ? (
+            <img src="/vectorlogo.svg" alt="" className="w-8 mr-2" />
+          ) : (
+            <img src="/vectorlogo2.svg" alt="" className="w-8 mr-2" />
+          )}
+          <span className="logo text-black dark:text-emerald-50 font-semibold text-base sm:text-xl">
             AyurvedaGPT
           </span>
         </div>

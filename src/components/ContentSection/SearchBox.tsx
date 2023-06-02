@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { AiOutlineEdit } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 
@@ -14,13 +13,30 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
     setLoading(true);
     setAnswer("");
     setRemoveIcon(false);
-    const res = await axios.post(
-      "https://coral-app-gs2vm.ondigitalocean.app/ask",
-      {
-        question: searchTerm,
-      }
-    );
-    setAnswer(res.data.response);
+
+    // post request to backend
+    await fetch("https://coral-app-gs2vm.ondigitalocean.app/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
+      },
+      body: JSON.stringify({ question: searchTerm }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Request failed");
+        }
+      })
+      .then((data) => {
+        setAnswer(data.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     setLoading(false);
     setRemoveIcon(true);
   };

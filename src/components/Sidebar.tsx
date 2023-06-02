@@ -20,11 +20,11 @@ const Sidebar = () => {
         <div className="bg-[#fff] dark:bg-[#171d29] dark:text-slate-300 px-6 py-6 rounded-xl text-center my-5">
           <h3 className="text-lg font-medium">Try this!</h3>
           <p className="mt-2 text-[0.9rem] leading-normal">
-            Q. What is the best diet for me?
+            Q. What are the benefits of Ayurveda?
             <br />
-            Q. What is the best exercise for me?
+            Q. What are some of the most common Ayurvedic treatments?
             <br />
-            Q. What is the best lifestyle for me?
+            Q. How to live a healthy life?
           </p>
         </div>
       </div>

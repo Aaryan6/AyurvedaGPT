@@ -18,7 +18,7 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
     // post request to backend
     try {
       const res = await axios.post(
-        "/api/ask",
+        "https://coral-app-gs2vm.ondigitalocean.app/ask",
         { question: searchTerm },
         {
           headers: {

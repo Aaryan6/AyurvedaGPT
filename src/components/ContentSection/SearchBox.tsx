@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
@@ -15,28 +16,21 @@ const SearchBox = ({ setAnswer, loading, setLoading }: any) => {
     setRemoveIcon(false);
 
     // post request to backend
-    await fetch("https://coral-app-gs2vm.ondigitalocean.app/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
-      },
-      body: JSON.stringify({ question: searchTerm }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Request failed");
+    try {
+      const res = await axios.post(
+        "/api/ask",
+        { question: searchTerm },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_SECRET_KEY}`,
+          },
         }
-      })
-      .then((data) => {
-        setAnswer(data.response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
+      );
+      setAnswer(res.data.response);
+    } catch (err) {
+      setAnswer("⚠️ Server overloaded. Please try again later.");
+    }
     setLoading(false);
     setRemoveIcon(true);
   };

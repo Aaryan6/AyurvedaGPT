@@ -29,6 +29,6 @@ The license for Ayurveda GPT is not specified at the moment. Contact the project
 
 ## Contact
 
-LinkedIn Profile: Aaryan Patel - [https://www.linkedin.com/in/aaryanpatel6/](https://www.linkedin.com/in/aaryanpatel6/)
+LinkedIn Profile: [Aaryan Patel](https://www.linkedin.com/in/aaryanpatel6/)
 
 For any inquiries or questions regarding the Ayurveda GPT project, please reach out to us via LinkedIn.

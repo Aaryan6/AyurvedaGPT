@@ -8,17 +8,17 @@ interface DisplayContentProps {
 const DisplayContent = ({ answer, loading }: DisplayContentProps) => {
   return (
     <div className="w-full mt-6">
-      {answer ? (
-        <p
-          className={`bg-[#ecf1f5] dark:bg-[#2f3648] dark:text-slate-300 whitespace-break-spaces rounded-md px-6 py-6 w-full leading-relaxed`}
-        >
-          {answer.trimStart()}
-        </p>
-      ) : (
-        <p className="bg-[#ecf1f5] dark:bg-[#2f3648] dark:text-slate-300 rounded-md px-6 py-4 w-full leading-relaxed">
-          <AiFillStar className={`text-2xl ${loading && "animate-spin"}`} />
-        </p>
-      )}
+      <div className="bg-[#ecf1f5] dark:bg-[#1a394a] dark:text-teal-50 px-6 w-full rounded-md">
+        {answer ? (
+          <p className={`whitespace-break-spaces py-6 leading-relaxed`}>
+            {answer.trimStart()}
+          </p>
+        ) : (
+          <p className="dark:text-slate-300 py-4 leading-relaxed">
+            <AiFillStar className={`text-2xl ${loading && "animate-spin"}`} />
+          </p>
+        )}
+      </div>
     </div>
   );
 };
